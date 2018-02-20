@@ -1,0 +1,9 @@
+<div class="form-group">
+  <label for="{{ obj.inputProp.id }}">{{ obj.labelName }}</label>
+  <input required ngModel name="file1" #file1="ngModel" (change)= "onFileUpload($event.target.files)" type="file" class="form-control-file" id="{{ obj.inputProp.id }}">
+  <div class="alert alert-danger" *ngIf="this.errors && this.errors.length !== 0"> 
+    <p *ngFor="let error of errors">
+      {{ error }}
+    </p>
+  </div>
+</div>

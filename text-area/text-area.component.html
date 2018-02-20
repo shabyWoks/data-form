@@ -1,0 +1,19 @@
+<div class="form-group">
+  <label for="{{ obj.inputProp.id }}">{{ obj.labelName }}</label>
+  <textarea required ngModel name="ta" #ta="ngModel" class="form-control" (change)="validate($event.target.value)" rows="{{ obj.inputProp.rowSize }}" id="{{ obj.inputProp.id }}"></textarea>
+  <!-- <div class="alert alert-danger" *ngIf="(ta.touched && !ta.valid) || errors.length !== 0">
+    <p *ngFor="let error of errors">
+      {{ error }}
+    </p>
+  </div> -->
+  <div class="alert alert-danger" *ngIf="this.errors.length !== 0 || (ta.touched && !ta.valid)">
+      <span *ngIf="(ta.touched && ta.valid)">
+          <p *ngFor="let error of this.errors">
+              {{ error }}
+          </p>
+      </span>
+      <p *ngIf="(ta.touched && !ta.valid)">
+          You have not entered anything.
+      </p>
+  </div>
+</div>

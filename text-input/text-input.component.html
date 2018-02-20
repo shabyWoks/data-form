@@ -1,0 +1,13 @@
+
+<label for="{{ obj.inputProp.id }}">{{ obj.labelName }}</label>
+<input required ngModel name="inpText" #inpText="ngModel" (change)="update($event.target.value)" type="{{ obj.inputProp.type }}" class="form-control" id="{{ obj.inputProp.id }}" placeholder="{{ obj.placeHolder }}"/>
+<div class="alert alert-danger" *ngIf="this.errors.length !== 0 || (inpText.touched && !inpText.valid)">
+    <span *ngIf="(inpText.touched && inpText.valid)">
+        <p *ngFor="let error of this.errors">
+            {{ error }}
+        </p>
+    </span>
+    <p *ngIf="(inpText.touched && !inpText.valid)">
+        You have not entered anything.
+    </p>
+</div>
