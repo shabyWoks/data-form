@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { DataFormComponent } from './data-form.component';
 import { TextInputComponent } from './text-input/text-input.component';
@@ -11,11 +12,13 @@ import { TextSelectComponent } from './text-select/text-select.component';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { TextCheckService } from './service/text-check.service';
 import { TextRadioComponent } from './text-radio/text-radio.component';
+import { StatusComponent } from './status/status.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   declarations: [
     DataFormComponent,
@@ -24,7 +27,8 @@ import { TextRadioComponent } from './text-radio/text-radio.component';
     FileUploadComponent,
     TextSelectComponent,
     TextAreaComponent,
-    TextRadioComponent
+    TextRadioComponent,
+    StatusComponent
   ],
   providers: [
     TextInputService,

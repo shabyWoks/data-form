@@ -3,17 +3,16 @@ import { InputPropArgs } from "./input-prop";
 
 
 export class FormInputDataArgs {
-    //type= 1 means textbox control
+    
     type: number;
     labelName: string;
     placeHolder: string;
     inputProp: InputPropArgs;
     options: Array<Options>;
-    
-    //inline: true means options in same line.
-    //inline: false means options in different line.
-    inline: boolean;
+    inline: boolean; /*inline: true means options in same line, inline: false means options in different line.*/
+    noInOneLine: number;/* it means no of option in one line */
     validationText: string;
     inValidationText: string;
     mandatory: number;
+    
 }

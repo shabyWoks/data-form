@@ -1,28 +1,30 @@
-<form #f="ngForm" (ngSubmit)="submit(f)">
-  <ng-container *ngFor="let obj of parameter; let i= index;">
-
-    <div class="form-group" *ngIf="obj.type === 1">
-      <text-input [input]="obj" [min-len]="obj.inputProp.minLen" [max-len]="obj.inputProp.maxLen" [not-allowed]="obj.inputProp.notAllowed" (update)="updateFormData($event, i)" ></text-input>
-    </div>
-    <div *ngIf="obj.type === 4">
-      <text-area [input]="obj" [min-len]="obj.inputProp.minLen" [max-len]="obj.inputProp.maxLen" [not-allowed]="obj.inputProp.notAllowed" (update)="updateFormData($event, i)"></text-area>
-    </div>
-    <div *ngIf="obj.type === 6">
-      <text-select [input]="obj" (update)="updateFormData($event, i)"></text-select>
-    </div>
-    <div *ngIf="obj.type === 2">
-      <text-check [input]="obj" (update)="updateFormData($event, i)"></text-check>
-    </div>
-    <div *ngIf="obj.type === 3">
-      <text-radio [input]="obj" (update)="updateFormData($event, i)"></text-radio>
-    </div>
-    <!-- 
-      <div *ngIf="obj.type === 5">
-        <file-upload [input]= "obj" [allowable-extensions]="'JPG, PNG, GIF'" [max-files]="1" [max-file-size]= "1"></file-upload>
+<div class="formBoundary">
+  <form-status [toggle-value]="toggleValue" [status]= "status" [status-text]= "statusText"></form-status>
+  <form #f="ngForm" (ngSubmit)="submit(f)">
+    <ng-container *ngFor="let obj of parameter; let i= index;">
+      <div class="form-group" *ngIf="obj.type === 1">
+        <text-input [input]="obj" [min-len]="obj.inputProp.minLen" [max-len]="obj.inputProp.maxLen" [not-allowed]="obj.inputProp.notAllowed"
+          (update)="updateFormData($event, i)"></text-input>
       </div>
-     -->
-  </ng-container>
-
-  <button class="btn btn-primary" [disabled] = "disabled">Submit form</button>
-
-</form>
+      <div *ngIf="obj.type === 4">
+        <text-area [input]="obj" [min-len]="obj.inputProp.minLen" [max-len]="obj.inputProp.maxLen" [not-allowed]="obj.inputProp.notAllowed"
+          (update)="updateFormData($event, i)"></text-area>
+      </div>
+      <div *ngIf="obj.type === 6">
+        <text-select [input]="obj" (update)="updateFormData($event, i)"></text-select>
+      </div>
+      <div *ngIf="obj.type === 2">
+        <text-check [input]="obj" (update)="updateFormData($event, i)"></text-check>
+      </div>
+      <div *ngIf="obj.type === 3">
+        <text-radio [input]="obj" (update)="updateFormData($event, i)"></text-radio>
+      </div>
+      <!-- 
+        <div *ngIf="obj.type === 5">
+          <file-upload [input]= "obj" [allowable-extensions]="'JPG, PNG, GIF'" [max-files]="1" [max-file-size]= "1"></file-upload>
+        </div>
+       -->
+    </ng-container>
+    <button class="btn btn-primary" [disabled]="disabled">Submit form</button>
+  </form>
+</div>

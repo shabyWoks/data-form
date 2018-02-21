@@ -1,14 +1,9 @@
 <label [for]="obj.inputProp.id">{{ obj.labelName }}</label>
-<br />
-<div *ngIf="obj.inline">
-  <label [class.radio-inline]="obj.inline" *ngFor="let option of obj.options; let o= index">
-    <input type="radio" [value]="option.value" [name]="obj.inputProp.id" (change)="onChange($event, o)">{{ option.key }}
-  </label>
-</div>
-<div *ngIf="!obj.inline">
-  <div class="radio" *ngFor="let option of obj.options">
-    <label>
+<div class="row no-gutters">
+  <ng-container *ngFor="let option of obj.options; let i= index">
+    <div class="col pad30">
       <input type="radio" [value]="option.value" [name]="obj.inputProp.id" (change)="onChange($event, o)">{{ option.key }}
-    </label>
-  </div>
+    </div>
+    <div *ngIf="i % obj.noInOneLine === obj.noInOneLine - 1" class="w-100"></div>
+  </ng-container>
 </div>

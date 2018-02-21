@@ -1,0 +1,11 @@
+<div [class]="toggleValue">
+  <div class="row alert" [class.alert-danger]= "!status" [class.alert-success]= "status">
+    <div class="col">
+        {{ statusText }}
+    </div>
+    <div class="col" class="btn btn-primary" (click)= "onClick('collapse')">
+        X
+    </div>
+  </div>
+  
+</div>

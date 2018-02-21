@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormInputDataArgs } from './models/form-inputdata-arg';
 import { FormReturnDataArgs } from './models/form-return-data';
+import { Http } from '@angular/http';
+import { DataFormService } from './service/data-form.service';
 
 @Component({
   selector: 'data-form',
@@ -10,9 +12,14 @@ import { FormReturnDataArgs } from './models/form-return-data';
 export class DataFormComponent {
 
   @Input('input-parameter') parameter: Array<FormInputDataArgs>= new Array<FormInputDataArgs>();
+  @Input('post-url') postUrl : string;
+  @Output() getFormData= new EventEmitter();
   
   formData: Array<FormReturnDataArgs>= new Array<FormReturnDataArgs>();
   disabled : boolean = true;
+  toggleValue = "collapse";
+  status = false;
+  statusText = "";
 
   initilizeFormData(){
     if(this.formData.length === 0){
@@ -34,9 +41,27 @@ export class DataFormComponent {
   }
 
   submit(){
-    console.log(this.formData);
+    if(this.getFormData){
+      this.getFormData.emit(this.formData);
+    }
+    if(this.postUrl){
+      this.dataFormService.submitFormData(this.postUrl, this.formData)
+      .subscribe(response => {
+        this.status= true;
+        this.toggleValue = "collapse.show";
+        this.statusText = "Action Successful.";
+      },
+      error => {
+        this.status= false;
+        this.toggleValue = "collapse.show";
+        this.statusText = error;
+      });
+    }
+    
   }
 
-  constructor() { }
+  constructor(private http: Http,
+    private dataFormService: DataFormService) { }
+
 
 }
