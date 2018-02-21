@@ -13,6 +13,12 @@ import { TextAreaComponent } from './text-area/text-area.component';
 import { TextCheckService } from './service/text-check.service';
 import { TextRadioComponent } from './text-radio/text-radio.component';
 import { StatusComponent } from './status/status.component';
+import { DataFormService } from './service/data-form.service';
+import { Options } from './models/options';
+import { FormInputDataArgs } from './models/form-inputdata-arg';
+import { FormReturnDataArgs } from './models/form-return-data';
+import { InputPropArgs } from './models/input-prop';
+
 
 @NgModule({
   imports: [
@@ -33,10 +39,15 @@ import { StatusComponent } from './status/status.component';
   providers: [
     TextInputService,
     FileUploadService,
-    TextCheckService
+    TextCheckService,
+    DataFormService
   ],
   exports: [
-    DataFormComponent
+    DataFormComponent,
+    Options,
+    FormInputDataArgs,
+    FormReturnDataArgs,
+    InputPropArgs
   ]
 })
 export class DataFormModule { }
