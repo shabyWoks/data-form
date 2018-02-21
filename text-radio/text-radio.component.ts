@@ -1,26 +1,25 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormInputDataArgs } from '../models/form-inputdata-arg';
-import { Options } from '../models/options';
 import { FormReturnDataArgs } from '../models/form-return-data';
-import { TextSelectService } from '../service/text-select.service';
+import { TextRadioService } from '../service/text-radio.service';
 
 @Component({
-  selector: 'text-select',
-  templateUrl: './text-select.component.html',
-  styleUrls: ['./text-select.component.css']
+  selector: 'text-radio',
+  templateUrl: './text-radio.component.html',
+  styleUrls: ['./text-radio.component.css']
 })
-export class TextSelectComponent implements OnInit {
+export class TextRadioComponent {
 
   @Input('input') obj : FormInputDataArgs;
   @Output() update = new EventEmitter();
 
-  constructor() { }
-
-  touched: boolean= false;
-  selectedOptionCount: number= 0;
+  touched: boolean = false;
+  checkedOptionCount: number= 0;
   options : Array<boolean> = new Array<boolean>();
   selectedOptions : Array<string>= new Array();
   returnValue: FormReturnDataArgs;
+
+  constructor() { }
 
   ngOnInit() {
     this.options.length === 0 ? this.options.length = this.obj.options.length : true ;
@@ -31,16 +30,17 @@ export class TextSelectComponent implements OnInit {
     for (var v = 0; v < this.options.length; v++) {
       this.options[v] = false;
     }
+    pos++;
     if (pos) {
       this.selectedOptions.push(this.obj.options[pos-1].value);
-      this.options[pos - 1] = true
+      this.options[pos - 2] = true
     }
   }
 
-  change(event) {
+  onChange(event, pos){
     this.touched = true;
-    this.selectedOptionCount = event.target.selectedOptions[0].index;
-    this.resetOptions(event.target.selectedOptions[0].index);
+    this.checkedOptionCount = pos;
+    this.resetOptions(pos);
     this.returnValue = { type: this.obj.type, id: this.obj.inputProp.id, data: this.selectedOptions };
     this.update.emit(this.returnValue);
   }

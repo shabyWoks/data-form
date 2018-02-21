@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { TagContentType } from '@angular/compiler';
 
 @Injectable()
 export class FileUploadService {
@@ -7,17 +8,14 @@ export class FileUploadService {
 
   constructor() { }
 
-  saveFiles(files, maxFiles, fileExt, maxSize) {
+  saveFiles(files, maxFiles, fileExt, maxSize, uploadStatus) {
     this.errors = []; 
     // Validate file size and allowed extensions
     if (files.length > 0 && (!this.isValidFiles(files, maxFiles, fileExt, maxSize))) {
       //this.uploadStatus.emit(false);
-      // console.log("hello1");
-      // console.log(this.errors);
       return this.errors;
     }
     if (files.length > 0) {
-      // console.log("hello2");
       // let formData: FormData = new FormData();
       // for (var j = 0; j < files.length; j++) {
       //   formData.append("file[]", files[j], files[j].name);

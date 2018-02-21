@@ -1,10 +1,10 @@
-<label for="{{ obj.inputProp.id }}">{{ obj.labelName }}</label>
+<label [for]="obj.inputProp.id">{{ obj.labelName }}</label>
 <br />
-<div class="form-check" *ngFor="let option of obj.options" [class.form-check-inline]="obj.inline">
+<div class="form-check" *ngFor="let option of obj.options; let i= index" [class.form-check-inline]="obj.inline">
   <label class="form-check-label">
-    <input required ngModel name="cbb" #cbb="ngModel" type="checkbox" (change)= "update($event, cbb)"  class="form-check-input" value="{{ option.value }}">{{ option.key }}
+    <input required ngModel name="cbb" #cbb="ngModel" type="checkbox" (change)= "onChange($event, cbb, i)"  class="form-check-input" [value]="option.value">{{ option.key }}
   </label>
 </div>
-<div class="alert alert-danger" *ngIf="(updated && this.marked < obj.mandatory)">
+<div class="alert alert-danger" *ngIf="(touched && this.checkedOptionCount < obj.mandatory)">
   {{ obj.inValidationText }}
 </div>

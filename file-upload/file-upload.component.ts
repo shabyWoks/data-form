@@ -16,7 +16,7 @@ export class FileUploadComponent implements OnInit {
   @Input('allowable-extensions') fileExt: string;
   @Input('max-files') maxFiles: number;
   @Input('max-file-size') maxSize: number; // 5MB
-  //@Output() uploadStatus = new EventEmitter();
+  @Output() uploadStatus = new EventEmitter();
   constructor(private fileUploadService: FileUploadService) { }
 
   ngOnInit() {
@@ -24,6 +24,6 @@ export class FileUploadComponent implements OnInit {
 
   onFileUpload(event) {
     this.errors = [];
-    this.errors = this.fileUploadService.saveFiles(event, this.maxFiles, this.fileExt, this.maxSize);
+    this.errors = this.fileUploadService.saveFiles(event, this.maxFiles, this.fileExt, this.maxSize, this.uploadStatus);
   }
 }

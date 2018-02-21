@@ -9,6 +9,8 @@ import { TextInputService } from './service/text-input.service';
 import { FileUploadService } from './service/file-upload.service';
 import { TextSelectComponent } from './text-select/text-select.component';
 import { TextAreaComponent } from './text-area/text-area.component';
+import { TextCheckService } from './service/text-check.service';
+import { TextRadioComponent } from './text-radio/text-radio.component';
 
 @NgModule({
   imports: [
@@ -21,11 +23,13 @@ import { TextAreaComponent } from './text-area/text-area.component';
     TextCheckComponent,
     FileUploadComponent,
     TextSelectComponent,
-    TextAreaComponent
+    TextAreaComponent,
+    TextRadioComponent
   ],
   providers: [
     TextInputService,
-    FileUploadService
+    FileUploadService,
+    TextCheckService
   ],
   exports: [
     DataFormComponent

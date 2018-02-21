@@ -4,7 +4,7 @@
     <option value="" selected>Select</option>
     <option value="{{ option.value }}" *ngFor="let option of obj.options">{{ option.key }}</option>
   </select>
-  <div class="alert alert-danger" *ngIf="touched && selectedOptionIndex === 0">
+  <div class="alert alert-danger" *ngIf="touched && selectedOptionCount === 0">
     {{ obj.inValidationText }}
   </div>
 </div>
