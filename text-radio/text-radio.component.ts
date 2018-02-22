@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormInputDataArgs } from '../models/form-inputdata-arg';
 import { FormReturnDataArgs } from '../models/form-return-data';
-import { TextRadioService } from '../service/text-radio.service';
 
 @Component({
   selector: 'text-radio',

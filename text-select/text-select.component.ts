@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormInputDataArgs } from '../models/form-inputdata-arg';
 import { Options } from '../models/options';
 import { FormReturnDataArgs } from '../models/form-return-data';
-import { TextSelectService } from '../service/text-select.service';
 
 @Component({
   selector: 'text-select',
