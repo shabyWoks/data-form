@@ -22,7 +22,7 @@ export class TextAreaComponent {
 
   constructor(private textInputService : TextInputService) { }
 
-  onChange(value){
+  onChange(value:string){
     this.errors = [];
     this.errors = this.textInputService.validation(value, this.minLen, this.maxLen, this.notAllowed);
     this.returnData.pop();

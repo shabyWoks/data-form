@@ -45,13 +45,14 @@ export class DataFormComponent {
       this.getFormData.emit(this.formData);
     }
     if(this.postUrl){
-      this.dataFormService.submitFormData(this.postUrl, this.formData)
-      .subscribe(response => {
+      //this.dataFormService.submitFormData(this.postUrl, this.formData)
+      this.http.post(this.postUrl, JSON.stringify(this.formData))
+      .subscribe((response:any) => {
         this.status= true;
         this.toggleValue = "collapse.show";
         this.statusText = "Action Successful.";
       },
-      error => {
+      (error:any) => {
         this.status= false;
         this.toggleValue = "collapse.show";
         this.statusText = error;

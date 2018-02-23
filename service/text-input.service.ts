@@ -7,7 +7,7 @@ export class TextInputService {
 
   constructor() { }
 
-  validation(val, minLen, maxLen, notAllowed){
+  validation(val:string, minLen:number, maxLen:number, notAllowed:string){
     this.errors= [];
     if(val.length == 0){
       this.errors.push("Enter some value");

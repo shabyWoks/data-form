@@ -26,7 +26,7 @@ export class TextCheckComponent implements OnInit {
     this.textCheckService.resetOptions(this.options);
   }
 
-  onChange(event, cb, pos) {
+  onChange(pos:number) {
     this.touched = true;
     this.options[pos] ? 
       this.selectedOptions = this.textCheckService.removeSelectedOption(pos, this.selectedOptions, this.obj) :

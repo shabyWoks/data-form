@@ -36,7 +36,7 @@ export class TextSelectComponent implements OnInit {
     }
   }
 
-  change(event) {
+  change(event:any) {
     this.touched = true;
     this.selectedOptionCount = event.target.selectedOptions[0].index;
     this.resetOptions(event.target.selectedOptions[0].index);

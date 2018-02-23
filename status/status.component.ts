@@ -16,7 +16,7 @@ export class StatusComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick(val){
+  onClick(val:string){
     this.toggleValue = val;
   }
 

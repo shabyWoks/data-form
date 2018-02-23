@@ -1,6 +1,6 @@
 <div class="formBoundary">
   <form-status [toggle-value]="toggleValue" [status]= "status" [status-text]= "statusText"></form-status>
-  <form #f="ngForm" (ngSubmit)="submit(f)">
+  <form #f="ngForm" (ngSubmit)="submit()">
     <ng-container *ngFor="let obj of parameter; let i= index;">
       <div class="form-group" *ngIf="obj.type === 1">
         <text-input [input]="obj" [min-len]="obj.inputProp.minLen" [max-len]="obj.inputProp.maxLen" [not-allowed]="obj.inputProp.notAllowed"

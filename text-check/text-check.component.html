@@ -3,7 +3,7 @@
   <ng-container *ngFor="let option of obj.options; let i= index">
     <div class="col pad30">
       
-        <input required ngModel name="cbb" #cbb="ngModel" type="checkbox" (change)="onChange($event, cbb, i)" class="form-check-input"
+        <input required ngModel name="cbb" #cbb="ngModel" type="checkbox" (change)="onChange(i)" class="form-check-input"
           [value]="option.value">{{ option.key }}
       
     </div>

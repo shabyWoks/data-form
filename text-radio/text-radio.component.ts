@@ -29,14 +29,15 @@ export class TextRadioComponent {
     for (var v = 0; v < this.options.length; v++) {
       this.options[v] = false;
     }
-    pos++;
+    
     if (pos) {
+      pos++;
       this.selectedOptions.push(this.obj.options[pos-1].value);
       this.options[pos - 2] = true
     }
   }
 
-  onChange(event, pos){
+  onChange(event: Event, pos:number){
     this.touched = true;
     this.checkedOptionCount = pos;
     this.resetOptions(pos);
