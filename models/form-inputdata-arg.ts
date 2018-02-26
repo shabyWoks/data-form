@@ -3,7 +3,6 @@ import { InputPropArgs } from "./input-prop";
 
 
 export class FormInputDataArgs {
-    
     type: number;
     labelName: string;
     placeHolder: string;

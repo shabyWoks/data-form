@@ -34,7 +34,7 @@ import { DataFormService } from './service/data-form.service';
     DataFormService
   ],
   exports: [
-    DataFormComponent,
+    DataFormComponent
   ]
 })
 export class DataFormModule { }
