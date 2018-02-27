@@ -30,14 +30,15 @@ export class TextRadioComponent {
       this.options[v] = false;
     }
     
-    if (pos) {
-      pos++;
-      this.selectedOptions.push(this.obj.options[pos-1].value);
-      this.options[pos - 2] = true
+    if (pos+1) {
+      
+      this.selectedOptions.push(this.obj.options[pos].value);
+      this.options[pos] = true
     }
   }
 
   onChange(event: Event, pos:number){
+    
     this.touched = true;
     this.checkedOptionCount = pos;
     this.resetOptions(pos);

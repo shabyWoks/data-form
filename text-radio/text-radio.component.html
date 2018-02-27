@@ -2,7 +2,7 @@
 <div class="row no-gutters">
   <ng-container *ngFor="let option of obj.options; let i= index">
     <div class="col pad30">
-      <input type="radio" [value]="option.value" [name]="obj.inputProp.id" (change)="onChange($event, o)">{{ option.key }}
+      <input type="radio" [value]="option.value" [name]="obj.inputProp.id" (change)="onChange($event, i)">{{ option.key }}
     </div>
     <div *ngIf="i % obj.noInOneLine === obj.noInOneLine - 1" class="w-100"></div>
   </ng-container>
